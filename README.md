@@ -19,7 +19,7 @@ This software is tested with python 3.9
 import peaq
 
 pq = peaq.PEAQ(Amax=32768, Fs=44100, NF=2048)
-BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB = pq.compute_PEAQ_from_file(ref_file, test_file)
+BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB = pq.compute_movs_from_file(ref_file, test_file)
 ````
 
 ## Research Question: How do we measure how similar two signals sound?

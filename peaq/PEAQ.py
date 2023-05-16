@@ -27,7 +27,7 @@ class PEAQ(object):
 		#Number of critical bands:
 		self.Nc = 109
 	
-	def compute_PEAQ(self, referenceSignal, testSignal):
+	def compute_MOV(self, referenceSignal, testSignal):
 		#Process Audio (Section 2 Kabal)
 		self.process(referenceSignal=referenceSignal, testSignal=testSignal)
 		
@@ -39,7 +39,7 @@ class PEAQ(object):
 		
 		return BandwidthRefB, BandwidthTestB, totalNMRB, relDistFramesB
 
-	def compute_PEAQ_from_file(self, reference_file: str, test_file: str):
+	def compute_MOV_from_file(self, reference_file: str, test_file: str):
 		y1, sr1 = librosa.load(reference_file, sr=None)
 		y2, sr2 = librosa.load(test_file, sr=None)
 		if sr1 != 44100:
