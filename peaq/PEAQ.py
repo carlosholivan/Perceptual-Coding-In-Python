@@ -46,7 +46,7 @@ class PEAQ(object):
 			y1 = librosa.resample(y=y1, orig_sr=sr1, target_sr=44100)
 		if sr2 != 44100:
 			y2 = librosa.resample(y=y2, orig_sr=sr2, target_sr=44100)
-		BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB = self.compute_PEAQ(y1, y2)
+		BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB = self.compute_MOV(y1, y2)
 		return BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB
 
 	def process(self, referenceSignal, testSignal):
