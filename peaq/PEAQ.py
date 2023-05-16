@@ -7,7 +7,7 @@
 ## Version 1.0
 
 import numpy as np
-from PQEval import PQEval
+from .PQEval import PQEval
 import time
 import librosa
 
@@ -41,12 +41,12 @@ class PEAQ(object):
 
 	def compute_PEAQ_from_file(self, reference_file: str, test_file: str):
 		y1, sr1 = librosa.load(reference_file, sr=None)
-		y2, sr2 = librosa.load(reference_file, sr=None)
+		y2, sr2 = librosa.load(test_file, sr=None)
 		if sr1 != 44100:
 			y1 = librosa.resample(y=y1, orig_sr=sr1, target_sr=44100)
 		if sr2 != 44100:
 			y2 = librosa.resample(y=y2, orig_sr=sr2, target_sr=44100)
-		BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB = self.compute_PEAQ(self, y1, y2)
+		BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB = self.compute_PEAQ(y1, y2)
 		return BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB
 
 	def process(self, referenceSignal, testSignal):
