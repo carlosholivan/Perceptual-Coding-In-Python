@@ -4,10 +4,23 @@ Created by Stephen Welch and Matthew Cohen
 
 ## Installation 
 
-clone this repository and run:
+Clone this repository and run:
 
+```
 cd Perceptual-Coding-In-Python
 pip install -e.
+```
+
+This software is tested with python 3.9
+
+## Usage
+
+````python
+import peaq
+
+pq = PEAQ(Amax=32768, Fs=44100, NF=2048)
+BandwidthRefB, BandwidthTestB,  totalNMRB, relDistFramesB = computeMOVs(peaq, ref_file, test_file)
+````
 
 ## Research Question: How do we measure how similar two signals sound?
 
